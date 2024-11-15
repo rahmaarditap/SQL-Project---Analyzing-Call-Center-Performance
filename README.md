@@ -35,10 +35,9 @@ The dataset includes 5000 call center records with the following attributes:
 ## Business Questions
 1. What is the average resolution time for each topic and how does it compare to the overall average resolution? [Solution1](#q1-what-is-the-average-resolution-time-for-each-topic-and-how-does-it-compare-to-the-overall-average-resolution)
 2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction? [Solution2](#q2-how-to-rank-the-agents-with-the-best-performance-based-on-multiple-criteria-resolution-rate-answer-rate-number-of-calls-average-satisfaction)
-3. Which topics have the highest number of unresolved cases? [Solution3](#q3-which-topics-have-the-highest-number-of-unresolved-cases) 
+3. Which topics have the highest number of unresolved cases, and does the unresolved case affect the satisfaction rating? [Solution3](#q3-which-topics-have-the-highest-number-of-unresolved-cases-and-does-the-unresolved-case-affect-the-satisfaction-rating) 
 4. What are the peak days for incoming calls? [Solution4]((q4-#what-are-the-peak-days-for-incoming-calls))
 5. Does the speed of answering the call affect the satisfaction rating? [Solution5](#q5-does-the-speed-of-answering-the-call-affect-the-satisfaction-rating)
-6. Which call topics have the highest and lowest average satisfaction ratings? [Solution6](#q6-which-call-topics-have-the-highest-and-lowest-average-satisfaction-ratings)
 
 ## Solution
 ### Q1. What is the average resolution time for each topic and how does it compare to the overall average resolution?
@@ -103,28 +102,31 @@ Dan    |        523|        82.62|          90.06|                   3.45|      
 Martha |        514|        80.56|          89.69|                   3.47|               6|
 Becky  |        517|        81.93|          89.36|                   3.37|               7|
 Stewart|        477|        81.96|          88.89|                   3.40|               8|
-### Q3. Which topics have the highest number of unresolved cases?
+### Q3. Which topics have the highest number of unresolved cases, and does the unresolved case affect the satisfaction rating?
 ```sql
 with unresolved_calls as(
 	select topic, 
 		   count(*) as total_calls,
-		   sum(case when Resolved_Status = 'N' then 1 else 0 end) as total_unresolved_status
+		   sum(case when Resolved_Status = 'N' then 1 else 0 end) as total_unresolved_status,
+		   round(avg(Satisfaction_Rating), 3) as avg_satisfaction_rating
 	from data_call_center 
 	where Answered_Status = 'Y'
 	group by Topic)
 select topic,
-	   round(total_unresolved_status / total_calls * 100, 2) as unresolved_percentage
+	   round(total_unresolved_status / total_calls * 100, 2) as unresolved_percentage,
+	   avg_satisfaction_rating
 from unresolved_calls
 group by topic
-order by unresolved_percentage desc;
+order by unresolved_percentage asc;
+ 
 ```
-topic            |unresolved_percentage|
------------------|---------------------|
-Streaming        |                11.57|
-Payment related  |                10.88|
-Contract related |                10.14|
-Admin Support    |                 9.06|
-Technical Support|                 8.57|
+topic            |unresolved_percentage|avg_satisfaction_rating|
+-----------------|---------------------|-----------------------|
+Technical Support|                 8.57|                  3.415|
+Admin Support    |                 9.06|                  3.426|
+Contract related |                10.14|                  3.378|
+Payment related  |                10.88|                  3.396|
+Streaming        |                11.57|                  3.403|
 ### Q4. What are the peak days for incoming calls?
 ```sql
 select 
@@ -134,15 +136,18 @@ from data_call_center
 group by day_of_week
 order by day_of_week;
 ```
-day_of_week|Total_Calls|
------------|-----------|
-          1|        716|
-          2|        770|
-          3|        675|
-          4|        679|
-          5|        712|
-          6|        680|
-          7|        768|
+
+| day_of_week | Total_Calls |
+|-------------|-------------|
+|           1 |         716 |
+|           2 |         770 |
+|           3 |         675 |
+|           4 |         679 |
+|           5 |         712 |
+|           6 |         680 |
+|           7 |         768 |
+
+	  
 ### Q5. Does the speed of answering the call affect the satisfaction rating? 
 ```sql
 with speeds_status as(
