@@ -4,6 +4,7 @@
 - [Introduction](#introduction)
 - [Dataset](#dataset)
 - [SQL Techniques Used](#sql-techniques-used)
+- [Business Questions](#business-questions)
 
   
 ## Introduction
@@ -26,9 +27,17 @@ The dataset includes 5000 call center records with the following attributes:
 ## SQL Techniques Used
 1. Common Table Expression (CTEs)
 2. Window Functions
-3. Date and Time Manipulation
-4. Aggregate Functions
-   
+3. Subqueries
+4. Join Tables
+5. Date and Time Manipulation
+6. Aggregate Functions
+
+## Business Questions
+1. What is the average resolution time for each topic and how does it compare to the overall average resolution?
+2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction?
+3. Which topics have the highest number of unresolved cases?
+4. What are the peak days for incoming calls?
+5. 
 ```sql
 with resolution_by_topic as(
 	select topic,
@@ -45,8 +54,8 @@ select rt.topic,
 	   ovr.overall_avg_resolution,
 	   abs(rt.avg_resolution_time - ovr.overall_avg_resolution) as resolution_diff_in_second,
 	   case
-	   		when rt.avg_resolution_time > ovr.overall_avg_resolution then 'Slower than Average'
-	   		else 'Faster than Average'
+		when rt.avg_resolution_time > ovr.overall_avg_resolution then 'Slower than Average'
+		else 'Faster than Average'
 	   end as resolution_comparison 
 from resolution_by_topic rt, overall_resolution ovr;
 ```
