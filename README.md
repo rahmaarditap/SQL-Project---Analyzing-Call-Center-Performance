@@ -36,7 +36,7 @@ The dataset includes 5000 call center records with the following attributes:
 1. What is the average resolution time for each topic and how does it compare to the overall average resolution? [Solution1](#q1-what-is-the-average-resolution-time-for-each-topic-and-how-does-it-compare-to-the-overall-average-resolution)
 2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction? [Solution2](#q2-how-to-rank-the-agents-with-the-best-performance-based-on-multiple-criteria-resolution-rate-answer-rate-number-of-calls-average-satisfaction)
 3. Which topics have the highest number of unresolved cases, and does the unresolved case affect the satisfaction rating? [Solution3](#q3-which-topics-have-the-highest-number-of-unresolved-cases-and-does-the-unresolved-case-affect-the-satisfaction-rating) 
-4. What are the peak days for incoming calls? [Solution4]((q4-#what-are-the-peak-days-for-incoming-calls))
+4. What are the peak days for incoming calls? [Solution4]((q4-#what-are-the-peak-days-for-incoming-calls)
 5. Does the speed of answering the call affect the satisfaction rating? [Solution5](#q5-does-the-speed-of-answering-the-call-affect-the-satisfaction-rating)
 
 ## Solution
@@ -171,17 +171,3 @@ Moderate    |       1045|                 3.3694|
 Slow        |       1026|                 3.3840|
 Fast        |        720|                 3.4278|
 Very Slow   |       1263|                 3.4339|
-### Q6. Which call topics have the highest and lowest average satisfaction ratings? 
-```sql
-select Topic, round(avg(Satisfaction_Rating),3) as avg_satisfaction_rating
-from data_call_center
-group by Topic 
-order by avg_satisfaction_rating desc;
-```
-Topic            |avg_satisfaction_rating|
------------------|-----------------------|
-Admin Support    |                  3.426|
-Technical Support|                  3.415|
-Streaming        |                  3.403|
-Payment related  |                  3.396|
-Contract related |                  3.378|
