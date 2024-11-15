@@ -33,11 +33,15 @@ The dataset includes 5000 call center records with the following attributes:
 6. Aggregate Functions
 
 ## Business Questions
-1. What is the average resolution time for each topic and how does it compare to the overall average resolution?
-2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction?
-3. Which topics have the highest number of unresolved cases?
-4. What are the peak days for incoming calls?
-5. 
+1. What is the average resolution time for each topic and how does it compare to the overall average resolution? [Solution1](#q1-what-is-the-average-resolution-time-for-each-topic-and-how-does-it-compare-to-the-overall-average-resolution)
+2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction? [Solution2](#q2-how-to-rank-the-agents-with-the-best-performance-based-on-multiple-criteria-resolution-rate-answer-rate-number-of-calls-average-satisfaction)
+3. Which topics have the highest number of unresolved cases? [Solution3](#q3-which-topics-have-the-highest-number-of-unresolved-cases) 
+4. What are the peak days for incoming calls? [Solution4]((q4-#what-are-the-peak-days-for-incoming-calls))
+5. Does the speed of answering the call affect the satisfaction rating? [Solution5](#q5-does-the-speed-of-answering-the-call-affect-the-satisfaction-rating)
+6. Which call topics have the highest and lowest average satisfaction ratings? [Solution6](#q6-which-call-topics-have-the-highest-and-lowest-average-satisfaction-ratings)
+
+## Solution
+### Q1. What is the average resolution time for each topic and how does it compare to the overall average resolution?
 ```sql
 with resolution_by_topic as(
 	select topic,
@@ -67,4 +71,8 @@ Admin Support    |             230.02|                225.18|                   
 Streaming        |             228.11|                225.18|                     2.93|Slower than Average  |
 Technical Support|             225.03|                225.18|                     0.15|Faster than Average  |
 
-jfjygj
+### Q2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction?
+### Q3. Which topics have the highest number of unresolved cases?
+### Q4. What are the peak days for incoming calls?
+### Q5. Does the speed of answering the call affect the satisfaction rating? 
+### Q6. Which call topics have the highest and lowest average satisfaction ratings? 
