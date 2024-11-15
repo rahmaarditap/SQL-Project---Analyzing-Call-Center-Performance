@@ -8,7 +8,7 @@
 
   
 ## Introduction
-This project demonstrates the use of SQL to analyze and optimize call center performance. The dataset includes information about calls, agents, and customer rating. By leveraging advanced SQL queries, this analysis uncovers trends, identifies areas for improvement, and provides actionable insights to enhance overall efficiency and customer satisfaction.
+This project demonstrates the use of SQL to analyze and optimize call center performance. The dataset includes information about calls, agents, and customers' satisfaction rating. By exploring the data, this analysis uncovers trends, identifies areas for improvement, and provides actionable insights to enhance overall efficiency and customer satisfaction.
 **The insights derived from this analysis can guide managers in implementing data-driven to enhancing call center performance.**
 
 ## Dataset
