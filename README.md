@@ -5,6 +5,7 @@
 - [Dataset](#dataset)
 - [SQL Techniques Used](#sql-techniques-used)
 - [Business Questions](#business-questions)
+- [Recommendation](#recommendation)
 
   
 ## Introduction
@@ -206,4 +207,6 @@ This indicates that there are other factors that can influence customers in givi
 
  ## Reference
  [1] https://www.callcentrehelper.com/average-speed-of-answer-89615.htm
- 
+
+---
+ Thank you for reading, and I welcome any feedback or questions! Let’s connect on LinkedIn: http://www.linkedin.com/in/rahmaardita
