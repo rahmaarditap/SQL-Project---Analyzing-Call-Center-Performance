@@ -74,6 +74,7 @@ Admin Support    |             230.02|                225.18|                   
 #### Insight Q1
 The overall average of resolution or completion time is 225.18 seconds or 3.75 minutes. The result reveals that **topics related to contract related, streaming, and admin support take longer time for agents to solve.** This indicates potential areas for improvement in these categories, especially for **admin support topic which takes the longest time** (4.84 second slower than overall average).
 
+---
 ### Q2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction?
 ```sql
 with agent_performance1 as(
@@ -109,8 +110,9 @@ Stewart|        477|        81.96|          88.89|                   3.40|      
 #### Insight Q2
 - The agent performance ranking show that Greg, Jim, and Diane are the top 3 performing agents. They  consistently maintaining balanced resolution rate, answered rate and satisfaction rating. This demonstrates their expertise on handling calls effectively.
 - Stewart is the lowest ranked agent. He has relatively weaker performance across 4 metrics.
-- Martha has highest satisfaction ratings but lower resolutions rates. This shows her strength in maintaining positive interactions with customers, but it is better to improve the resolution rate as the goal of call center agents is to solve customers issues.
+- Martha has highest satisfaction ratings but lower resolutions rates. This shows her strength in maintaining positive interactions with customers, but it is better to improve the resolution rate as the goal of call center agents is to resolve customers issues.
 
+---
 ### Q3. Which topics have the highest number of unresolved cases, and does the unresolved case affect the satisfaction rating?
 ```sql
 with unresolved_calls as(
@@ -136,6 +138,11 @@ Admin Support    |                 9.06|                  3.426|
 Contract related |                10.14|                  3.378|
 Payment related  |                10.88|                  3.396|
 Streaming        |                11.57|                  3.403|
+
+#### Insight Q3
+**Topics related to streaming and payment related have the highest percentage of unresolved case.** This indicates these topics are more complex to resolve. But **interestingly, unresolved case doesn't have a strong correlation with customer satisfaction rating** because despite of having the highest unresolved case percentage, streaming still achieve relatively high satisfaction rating of 3.4. This suggests that other factor, such as quality interaction between agent and customer may play a significant role in customer satisfaction.
+
+---
 ### Q4. What are the peak days for incoming calls?
 ```sql
 select 
@@ -156,7 +163,11 @@ order by day_of_week;
 |           6 |         680 |
 |           7 |         768 |
 
-	  
+#### Insight Q4
+The results show that **Sunday, Monday and Saturday are the peak days for incoming calls**. This trend indicates customer are likely to contact the agent during weekend and beginning of the weekday. **They may be making calls in their free time.**
+
+
+---
 ### Q5. Does the speed of answering the call affect the satisfaction rating? 
 ```sql
 with speeds_status as(
