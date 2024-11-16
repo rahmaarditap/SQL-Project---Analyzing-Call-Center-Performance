@@ -193,4 +193,17 @@ Slow        |       1026|                  3.384|
 Very Slow   |       1263|                  **3.434**|
 
 #### Insight Q5
-**There is no correlation between the call answering speed and satisfaction rating**. The results show that the 'Fast' and 'Very Slow' speed answering categories have similar satisfaction ratings. This indicates that there are other factors that can influence customers in giving satisfaction rating. 
+**There is no correlation between the call answering speed and satisfaction rating**. The results show that the 'Fast' and 'Very Slow' speed answering categories have similar satisfaction ratings. **Sometimes low waiting times doesn't always indicating high customer satisfaction** [[1]](https://www.callcentrehelper.com/average-speed-of-answer-89615.htm)
+
+This indicates that there are other factors that can influence customers in giving satisfaction ratings, such as complicated Interactive Voice Response (IVR) system that customers must navigate before customer interacting with agent. 
+
+## Recommendation
+1. **Provide training for agents to handle complex topics**, topic that has longer resolution times to solved and a high percentage of unresolved cases such as **admin support and streaming topic**.
+2. **Reward and incentivize top-performing agent** based on multiple metrics to motivate agents to give their best to customer.
+3. **Provide coaching** for agents who have low performance ranking.
+4. **Optimizing the shift schedule to handle the busy days** on Saturday, Sunday, and Monday. The manager should ensure there are more agents on those peak days to avoid long waiting times.
+5. **Re-evaluate and then improve the Interactive Voice Response (IVR)** to help boost customer satisfaction
+
+ ## Reference
+ [1] https://www.callcentrehelper.com/average-speed-of-answer-89615.htm
+ 
