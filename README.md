@@ -179,15 +179,18 @@ with speeds_status as(
 	end as speed_status
 	from data_call_center
 	where Speed_of_answer_in_seconds is not null)
-select speed_status, count(*) as total_calls, avg(Satisfaction_Rating) as avg_satisfaction_rating
+select speed_status, count(*) as total_calls, round(avg(Satisfaction_Rating), 3) as avg_satisfaction_rating
 from speeds_status ss join data_call_center dc on ss.call_id = dc.call_id
 where dc.Speed_of_answer_in_seconds is not null
 group by speed_status
-order by avg_satisfaction_rating;
+ORDER BY FIELD(speed_status, 'Fast', 'Moderate', 'Slow', 'Very Slow');
 ```
 speed_status|total_calls|avg_satisfaction_rating|
 ------------|-----------|-----------------------|
-Moderate    |       1045|                 3.3694|
-Slow        |       1026|                 3.3840|
-Fast        |        720|                 3.4278|
-Very Slow   |       1263|                 3.4339|
+Fast        |        720|                 **3.428**|
+Moderate    |       1045|                  3.369|
+Slow        |       1026|                  3.384|
+Very Slow   |       1263|                  **3.434**|
+
+#### Insight Q5
+**There is no correlation between the call answering speed and satisfaction rating**. The results show that the 'Fast' and 'Very Slow' speed answering categories have similar satisfaction ratings. This indicates that there are other factors that can influence customers in giving satisfaction rating. 
