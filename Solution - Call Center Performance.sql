@@ -86,9 +86,9 @@ with speeds_status as(
 	end as speed_status
 	from data_call_center
 	where Speed_of_answer_in_seconds is not null)
-select speed_status, count(*) as total_calls, avg(Satisfaction_Rating) as avg_satisfaction_rating
+select speed_status, count(*) as total_calls, round(avg(Satisfaction_Rating), 3) as avg_satisfaction_rating
 from speeds_status ss join data_call_center dc on ss.call_id = dc.call_id
 where dc.Speed_of_answer_in_seconds is not null
 group by speed_status
-order by avg_satisfaction_rating;
+ORDER BY FIELD(speed_status, 'Fast', 'Moderate', 'Slow', 'Very Slow');
 
