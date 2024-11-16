@@ -71,6 +71,9 @@ Contract related |             226.10|                225.18|                   
 Streaming        |             228.11|                225.18|                     2.93|Slower than Average  |
 Admin Support    |             230.02|                225.18|                     4.84|Slower than Average  |
 
+#### Insight Q1
+The overall average of resolution or completion time is 225.18 seconds or 3.75 minutes. The result reveals that **topics related to contract related, streaming, and admin support take longer time for agents to solve.** This indicates potential areas for improvement in these categories, especially for **admin support topic which takes the longest time** (4.84 second slower than overall average).
+
 ### Q2. How to rank the agents with the best performance based on multiple criteria: resolution rate, answer rate, number of calls, average satisfaction?
 ```sql
 with agent_performance1 as(
@@ -102,6 +105,12 @@ Dan    |        523|        82.62|          90.06|                   3.45|      
 Martha |        514|        80.56|          89.69|                   3.47|               6|
 Becky  |        517|        81.93|          89.36|                   3.37|               7|
 Stewart|        477|        81.96|          88.89|                   3.40|               8|
+
+#### Insight Q2
+- The agent performance ranking show that Greg, Jim, and Diane are the top 3 performing agents. They  consistently maintaining balanced resolution rate, answered rate and satisfaction rating. This demonstrates their expertise on handling calls effectively.
+- Stewart is the lowest ranked agent. He has relatively weaker performance across 4 metrics.
+- Martha has highest satisfaction ratings but lower resolutions rates. This shows her strength in maintaining positive interactions with customers, but it is better to improve the resolution rate as the goal of call center agents is to solve customers issues.
+
 ### Q3. Which topics have the highest number of unresolved cases, and does the unresolved case affect the satisfaction rating?
 ```sql
 with unresolved_calls as(
