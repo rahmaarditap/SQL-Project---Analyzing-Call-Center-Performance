@@ -5,6 +5,7 @@
 - [Dataset](#dataset)
 - [SQL Techniques Used](#sql-techniques-used)
 - [Business Questions](#business-questions)
+- [Solution](#solution)
 - [Recommendation](#recommendation)
 
   
